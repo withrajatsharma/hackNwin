@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import { useParams } from "react-router-dom";
+import loginImg from '../assets/Group 3.png'
+
 const Login = ({token, setToken}) => {
     const params = useParams();
     console.log(params);
@@ -147,7 +149,79 @@ const Login = ({token, setToken}) => {
     return(
         <>
             <Navbar token={token} />
-            <div className='flex justify-center mt-10'>
+
+
+                        <img className='bottom-0 absolute w-[30%]'  src={loginImg} />
+                
+                        
+
+           
+                <div class="w-full flex justify-center mt-32 ">
+            <form onSubmit={handleLogin} class="w-[30%] bg-[#b0b3f9] p-8 rounded-xl">
+            <div class="mb-5">
+            <div className='mb-4'>
+                            <LoginStatusMessage status={status}/>
+                        </div>
+            <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-gray-900 "
+            >
+            Your email
+            </label>
+            <input
+            id="email"
+            type="email"
+            placeholder="name@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            required
+            />
+            </div>
+
+          
+
+            <div class="mb-5">
+            <label
+            for="password"
+            class="block mb-2 text-sm font-medium text-gray-900 "
+            >
+            Your password
+            </label>
+            <input
+            id="password"
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => {
+                setPassword(e.target.value);
+            }}
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
+            required
+            />
+            </div>
+
+            
+            
+            
+            
+            <button
+            type="submit"
+            class="text-white hover:bg-[#8085c9] bg-[#676ecc]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+            >
+              {loading?<>Logging in...</>:<>Log In</>}
+            </button>
+            </form>
+            
+            </div>
+           
+
+
+
+
+
+
+            {/* <div className='flex justify-center mt-10'>
                 <div class="w-full max-w-lg">
                     <form onSubmit={handleLogin} className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
                         <div className='mb-4 text-center text-lg font-bold text-gray-600'>
@@ -204,7 +278,7 @@ const Login = ({token, setToken}) => {
                             </button>
                     </form>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }

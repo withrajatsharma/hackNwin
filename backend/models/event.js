@@ -31,7 +31,7 @@ const dataSchema = new mongoose.Schema({
         type: Number,
     },
     posterImg: {
-        required: true,
+        // required: true,
         type: String,
     },
     hostedBy: {

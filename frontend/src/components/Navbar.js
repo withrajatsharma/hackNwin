@@ -1,79 +1,216 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Searchbar from "./Searchbar"
-const Navbar = ({setToken, token}) =>{
+import Searchbar from "./Searchbar";
+const Navbar = ({ setToken, token }) => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    return(
-        <>
-            
-            <nav className='px-2 pt-4 block md:hidden bg-blue-600'>
-                <div className="flex justify-between border-b-2 pb-2">
-                    <div className='flex gap-4 text-3xl'>Jigyaasu</div>
-                    {token && 
-                    <><button className='max-w-none flex shadow-sm px-3 py-2 font-semibold text-sm bg-blue-500 text-white rounded shadow-sm' onClick={()=>{navigate('/additem')}}>
-                                Host 
-                                {/* <span className="px-2">
+  return (
+    <>
+      <nav className="px-2 pt-4 block md:hidden bg-blue-600">
+        <div className="flex justify-between border-b-2 pb-2">
+          <div className="flex gap-4 text-3xl">Jigyaasu</div>
+          {token && (
+            <>
+              <button
+                className="max-w-none flex shadow-sm px-3 py-2 font-semibold text-sm bg-blue-500 text-white rounded shadow-sm"
+                onClick={() => {
+                  navigate("/additem");
+                }}
+              >
+                Host
+                {/* <span className="px-2">
                                     <marquee scrolldelay={30} className="w-20 text-red-500 bg-blue-400 rounded-xl" direction="left">Workshop    Symposium Seminars</marquee>
                                 </span> */}
-                        </button></>}
-                    <div  onClick={()=>{setIsOpen(!isOpen)}} class="space-y-2">
-                        <span class="block w-8 h-0.5 bg-gray-600"></span>
-                        <span class="block w-8 h-0.5 bg-gray-600"></span>
-                        <span class="block w-5 h-0.5 bg-gray-600"></span>
-                    </div>
+              </button>
+            </>
+          )}
+          <div
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+            class="space-y-2"
+          >
+            <span class="block w-8 h-0.5 bg-gray-600"></span>
+            <span class="block w-8 h-0.5 bg-gray-600"></span>
+            <span class="block w-5 h-0.5 bg-gray-600"></span>
+          </div>
+        </div>
+        {isOpen && (
+          <div className="text-center flex flex-col">
+            {token ? (
+              <>
+                <button
+                  className="px-2 py-1 font-semibold text-sm text-gray-500 hover:text-blue-500 text-white rounded shadow-sm"
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
+                  Home
+                </button>
+                <button
+                  className="px-2 py-1 font-semibold text-sm text-gray-500 hover:text-blue-500 text-white rounded shadow-sm"
+                  onClick={() => {
+                    navigate("/dashboard");
+                  }}
+                >
+                  Dashboard
+                </button>
+                <button
+                  className="px-2 py-1 font-semibold text-sm text-red-500 hover:text-red-800 text-white rounded shadow-sm"
+                  onClick={() => {
+                    setToken("");
+                  }}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  className="px-2 py-1 font-semibold text-sm text-white rounded shadow-sm"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Sign In
+                </button>
+                <button
+                  className="px-2 py-1 font-semibold text-sm text-white rounded shadow-sm"
+                  onClick={() => {
+                    navigate("/aboutus");
+                  }}
+                >
+                  About Us
+                </button>
+
+                <button
+                  className="px-2 py-1 font-semibold text-sm bg-blue-500 text-white rounded shadow-sm"
+                  onClick={() => {
+                    navigate("/register");
+                  }}
+                >
+                  Register
+                </button>
+              </>
+            )}
+          </div>
+        )}
+        {token && <Searchbar token={token} setToken={setToken} />}
+      </nav>
+
+      <nav className="flex justify-end pr-20 px-2 py-4 hidden md:flex bg-blue-00">
+        <div className="flex justify-end items-center w-full gap-4">
+          {token ? (
+            <>
+              <div className="flex items-center justify-between w-full">
+                <div class=" ml-8 w-10 h-14 bg-[#676ECC] text-indigo-950 rounded-full">
+                  <p class="font-serif font-extrabold text-5xl">Amal</p>
                 </div>
-                {isOpen && <div className="text-center flex flex-col">{token?<>
-                    <button className='px-2 py-1 font-semibold text-sm text-gray-500 hover:text-blue-500 text-white rounded shadow-sm' onClick={()=>{navigate('/')}}>Home</button>
-                    <button className='px-2 py-1 font-semibold text-sm text-gray-500 hover:text-blue-500 text-white rounded shadow-sm' onClick={()=>{navigate('/dashboard')}}>Dashboard</button>
-                    <button className='px-2 py-1 font-semibold text-sm text-red-500 hover:text-red-800 text-white rounded shadow-sm' onClick={()=>{setToken('')}}>Logout</button>
-                    </>:<>
-                    <button className='px-2 py-1 font-semibold text-sm text-white rounded shadow-sm' onClick={()=>{navigate('/login')}}>Sign In</button>
-                    <button className='px-2 py-1 font-semibold text-sm text-white rounded shadow-sm' onClick={()=>{navigate('/aboutus')}}>About Us</button>
+                <div className="flex gap-5">
 
-                    <button className='px-2 py-1 font-semibold text-sm bg-blue-500 text-white rounded shadow-sm' onClick={()=>{navigate('/register')}}>Register</button>
-                    </>}</div>}
-                {token && <Searchbar token={token} setToken={setToken} />}
-            </nav>
-
-
-
-
-            <nav className='flex justify-end pr-20 px-2 py-4 hidden md:flex bg-blue-00'>
                 
-                <div className='flex gap-4'>
-                    {token?<>
-                    <button className=' bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 max-w-none flex shadow-sm px-2 py-1 font-semibold text-xl bg-blue-500 text-white rounded shadow-sm' onClick={()=>{navigate('/additem')}}>
-                        Host an event
-                                
-                        </button>
-                    <button className='px-2 py-1 font-semibold text-sm text-gray-100 text-white rounded shadow-sm' onClick={()=>{navigate('/')}}>Home</button>
-                    <button className='px-2 py-1 font-semibold text-sm text-gray-100 text-white rounded shadow-sm' onClick={()=>{navigate('/dashboard')}}>Dashboard</button>
-                    <button className='px-2 py-1 font-semibold text-sm text-red-500 rounded shadow-sm' onClick={()=>{setToken('')}}>Logout</button>
-                    </>:<>
-                    <button className='px-2 py-1 font-semibold text-base text-[#676ecc]  ' onClick={()=>{navigate('/aboutus')}}>About Us</button>
-                    <button className='px-2 py-1 font-semibold text-base text-[#676ecc] ' onClick={()=>{navigate('/login')}}>Login</button>
-                    <button className='px-2 py-1 font-semibold text-base bg-[#676ecc] text-white rounded shadow-sm' onClick={()=>{navigate('/register')}}>Register</button>
-                    </>}
-                </div>
-            </nav>
-            {token && <div className="flex justify-around shadow-md px-2 py-2 bg-gray-100 ">
-                <a className="text-blue-700 hover:text-blue-500 mt-2 font-semibold" href="/">Home</a>
-                <a className="text-blue-700 hover:text-blue-500 mt-2 font-semibold" href="/workshops">Workshops</a>
-                <div className="hidden md:flex">
-                    <Searchbar token={token} setToken={setToken} />
-                </div>
-                <a className="text-blue-700 hover:text-blue-500 mt-2 font-semibold" href="/seminars">Seminars</a>
-                <a className="text-blue-700 hover:text-blue-500 mt-2 font-semibold" href="/symposium">Symposium</a>
-            </div>}
+                <button
+                className=" bg-gradient-to-r from-[#565dc5] to-[#7074fd] max-w-none flex shadow-sm px-2 py-1 font-semibold text-xl bg-blue-500 text-white rounded"
+                onClick={() => {
+                  navigate("/additem");
+                }}
+              >
+                Host an event
+              </button>
+              <button
+                className="px-2 py-1 font-semibold text-base text-slate-900  shadow-sm"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Home
+              </button>
+              <button
+                className="px-2 py-1 font-semibold text-base text-slate-900 rounded shadow-sm"
+                onClick={() => {
+                  navigate("/dashboard");
+                }}
+              >
+                Dashboard
+              </button>
+              <button
+                className="px-2 py-1 font-semibold text-base text-red-500 rounded shadow-sm"
+                onClick={() => {
+                  setToken("");
+                }}
+              >
+                Logout
+              </button>
+              </div>
+              </div>
 
+             
+            </>
+          ) : (
+            <>
+              <button
+                className="px-2 py-1 font-semibold text-base text-[#676ecc]  "
+                onClick={() => {
+                  navigate("/aboutus");
+                }}
+              >
+                About Us
+              </button>
+              <button
+                className="px-2 py-1 font-semibold text-base text-[#676ecc] "
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Login
+              </button>
+              <button
+                className="px-2 py-1 font-semibold text-base bg-[#676ecc] text-white rounded shadow-sm"
+                onClick={() => {
+                  navigate("/register");
+                }}
+              >
+                Register
+              </button>
+            </>
+          )}
+        </div>
+      </nav>
+      {token && (
+        <div className="flex justify-around shadow-md px-2 py-2 bg-gray-100 ">
+          <a
+            className="text-blue-700 hover:text-blue-500 mt-2 font-semibold"
+            href="/"
+          >
+            Home
+          </a>
+          <a
+            className="text-blue-700 hover:text-blue-500 mt-2 font-semibold"
+            href="/workshops"
+          >
+            Workshops
+          </a>
+          <div className="hidden md:flex">
+            <Searchbar token={token} setToken={setToken} />
+          </div>
+          <a
+            className="text-blue-700 hover:text-blue-500 mt-2 font-semibold"
+            href="/seminars"
+          >
+            Seminars
+          </a>
+          <a
+            className="text-blue-700 hover:text-blue-500 mt-2 font-semibold"
+            href="/symposium"
+          >
+            Symposium
+          </a>
+        </div>
+      )}
 
-            
-
-{/* <nav class="bg-white  fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
+      {/* <nav class="bg-white  fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
   <div class="max-w-screen-xl flex flex-wrap items-center  justify-end mx-auto p-4">
   
   <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -103,12 +240,8 @@ const Navbar = ({setToken, token}) =>{
   </div>
   </div>
 </nav> */}
-
-
-
-            
-        </>
-    );
-}
+    </>
+  );
+};
 
 export default Navbar;

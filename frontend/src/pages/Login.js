@@ -151,13 +151,21 @@ const Login = ({token, setToken}) => {
             <Navbar token={token} />
 
 
+            <div className='absolute left-[22%] top-[5%] -z-10 '>
+
+            
+            <div class=" w-36 h-[15vw] bg-[#676ECC] text-indigo-950 rounded-full">
+        <p class="font-serif font-extrabold text-[20vw] leading-none">Amal</p>
+    </div>
+    </div>
+
                         <img className='bottom-0 absolute w-[30%]'  src={loginImg} />
                 
                         
 
            
-                <div class="w-full flex justify-center mt-32 ">
-            <form onSubmit={handleLogin} class="w-[30%] bg-[#b0b3f9] p-8 rounded-xl">
+                <div class="w-full flex justify-center mt-48 ">
+            <form onSubmit={handleLogin} class="w-[30%] bg-[#b0b2f9df] p-8 rounded-xl">
             <div class="mb-5">
             <div className='mb-4'>
                             <LoginStatusMessage status={status}/>

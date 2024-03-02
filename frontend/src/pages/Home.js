@@ -3,16 +3,17 @@ import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import Product from '../components/Productcard';
 import Category from "./Category";
+import product from "../assets/514.webp"
 const Home = ({token , setToken }) =>{
 
-    document.title = "Jigyaasu | AICTE"
+    document.title = "Amal | HackNWin"
 
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState(false);
     const [listings, setListings] = useState([]);
 
-    
+    const arr =["1","2","3","4"]
 
     const fetchListings = async () =>{
         setLoading(true)
@@ -54,7 +55,7 @@ const Home = ({token , setToken }) =>{
         <>
         <Navbar setToken={setToken} token={token} />
         
-        {listings.length>=1?
+        {listings.length>=0?
         <>
         <h2 className="text-2xl py-3 px-6 text-blue-600 mt-2 ml-3 font-semibold">Recently Added</h2>
         <div class="mb-14 grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-10 w-full md:px-15 px-5 pt-5">
@@ -98,11 +99,43 @@ const Home = ({token , setToken }) =>{
                     </>
                 })
             }
+
+            {
+                        arr.map((e)=><Product 
+                        key={1} 
+                        nav={"HackNWin"} 
+                        img={product} 
+                        title={"Hack n Win"} 
+                        description={"Our mission is simple yet profound: to challenge participants to harness their creativity, coding skills, and teamwork to solve real-world problems."}  
+                        price={"Free"} 
+                        old={"2024"}
+                        expiresBy={"1"}
+                        category={"hackathon"}
+                        tags={"workshop"}
+                        pimg={product}
+                    />)
+            }
+              
+              {/* <Product 
+                            key={2} 
+                            nav={"sdfs"} 
+                            img={product} 
+                            title={"data structures"} 
+                            description={"complete course on data structures and algorithms"}  
+                            price={"$200"} 
+                            old={"2023"}
+                            expiresBy={"123"}
+                            category={"workshop"}
+                            tags={"workshop"}
+                            pimg={product}
+                        /> */}
         </div>
         <br />
         <Category setToken={setToken} token={token} endpoint={"http://localhost:3000/api/event/category/workshop"} category={"Workshops"} limit={true}  />
         <Category setToken={setToken} token={token} endpoint={"http://localhost:3000/api/event/category/seminar"} category={"Seminars"} limit={true}  />
         <Category setToken={setToken} token={token} endpoint={"http://localhost:3000/api/event/category/symposium"} category={"symposium"} limit={true}  />
+        <Category setToken={setToken} token={token} endpoint={"http://localhost:3000/api/event/category/internship"} category={"internships"} limit={true}  />
+    
         </>:<div className="text-xl px-5 py-5 mt-30 text-center">:( Nothing to show!</div>}
         </>
     );

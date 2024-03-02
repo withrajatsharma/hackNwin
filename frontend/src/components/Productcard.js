@@ -41,9 +41,9 @@ const Product = (props) =>{
                             <Modal token={props.token} id={props.eid}/>
                             
                         </div>
-                        <h2 className="text-blue-900 text-xl font-semibold">Registrations : {props?.partcipants?.length}</h2>
+                        <h2 className="text-blue-900 text-xl font-semibold">Registrations : {props.partcipants}</h2>
                         <div className="flex justify-between mt-6">
-                            <span className="text-xl font-semibold  text-gray-600 ">On {sday}/{smonth}/{syear} at Delhi, India</span><br /><br />
+                            <span className="text-xl font-semibold  text-gray-600 ">On {sday}/{smonth}/{syear} at Sahibzada Ajit Singh Nagar, India</span><br /><br />
                             <span className="font-semibold text-base text-sky-400 rounded bg-gray-100">{daydiff} Days left</span>
                         </div>
                         <div>

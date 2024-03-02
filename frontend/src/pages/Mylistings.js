@@ -116,7 +116,7 @@ const MyListings = ({token , setToken }) =>{
                     Hosted : {userData?.events_hosted?.length}
                 </div>
                 <div className="ml-36">
-                    <p1 className="text-xl font-semibold">✨ Intrests ✨</p1><br/>
+                    <p1 className="text-xl font-semibold">✨ Interests ✨</p1><br/>
                     
                 </div>
             </div>

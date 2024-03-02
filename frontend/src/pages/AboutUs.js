@@ -103,7 +103,11 @@
 
 import React from "react";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 const AboutUs = () =>{
+
+  const navigate = useNavigate();
+
     return(
     <>
     <Navbar />
@@ -113,15 +117,15 @@ const AboutUs = () =>{
           <div className="container m-auto text-center px-6 opacity-100">
             <h2 className="text-4xl font-bold mb-2 drop-shadow-lg	text-[#1d1a53] ">Stand out of Box</h2>
             <h3 className="text-5xl mb-8 text-white drop-shadow-lg text-[#676ECC]">Examine, Evaluate and Elevate</h3>
-            <button className="bg-[#676ECC] font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider hover:border-transparent  hover:bg-[#1d1a53] text-white ">So are you ready?</button>
+            <button onClick={()=>navigate("/register")} className="bg-[#676ECC] font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider hover:border-transparent  hover:bg-[#1d1a53] text-white ">So are you ready?</button>
           </div>
         </div>
         <section className="container mx-auto px-6 p-10">
           {/* <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">AMAL</h2>
           <p className="text-center">Inspiring Success</p> */}
           <div class="w-full flex justify-center ">
-          <div class=" w-10 h-14 bg-[#676ECC] text-indigo-950 rounded-full mr-20">
-        <p class="font-serif font-extrabold text-5xl text-center ">Amal</p>
+          <div class=" w-20 h-24 bg-[#676ECC] text-indigo-950 rounded-full mr-36 mb-20">
+        <p class="font-serif font-extrabold text-8xl text-center ">Amal</p>
     </div></div>
           <div className="flex items-center flex-wrap mb-20">
             <div className="w-full md:w-1/2 pr-10">

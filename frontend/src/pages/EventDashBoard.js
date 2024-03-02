@@ -202,7 +202,9 @@ const ProductPage = ({token , setToken}) =>{
         <Navbar setToken={setToken} token={token} />
         {/* {listings && <span className="text-sm py-3 px-6 text-gray-600 pt-6">../{listings.length>0?<>{listings[0].title} - Rs. {listings[0].expectedPrice}</> :<></>}</span>} */}
         <div className="flex flex-col justify-center px-10 max-w-4xl mx-auto mb-16">
-            {listings && particpants && <>
+            {/* {listings && particpants && */}
+            {
+             <>
             <br/>
             <h1 className="font-semibold text-2xl text-blue-900">Event Dashboard</h1>
             <h2 className="mt-5 md:mt-1 text-2xl">{listings.eventName}</h2><br />

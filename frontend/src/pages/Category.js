@@ -11,7 +11,7 @@ const Category = ({token , setToken, category, endpoint , limit}) =>{
 
 
     if(!limit){
-        document.title = `${category} - JigYasu`
+        document.title = `${category} - Amal`
     }
     
     const fetchListings = async () =>{
@@ -46,7 +46,7 @@ const Category = ({token , setToken, category, endpoint , limit}) =>{
         return(
         <>
         <a className="text-2xl py-3 px-6 text-blue-600 ml-3 font-semibold" href={`/${category}`}>{category}</a>
-        {listings.length>=1?<div class="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-12 w-full mt-6 md:px-15 px-5 py-10">
+        {listings.length>=0?<div class="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-12 w-full mt-6 md:px-15 px-5 py-10">
             {
                 listings.map((data)=>{
                     var today = new Date();
@@ -152,7 +152,7 @@ const Category = ({token , setToken, category, endpoint , limit}) =>{
                     </>
                 })
             }
-        </div>:<div className="text-xl px-5 py-5 mt-30 text-center">:( Nothing to show!</div>}
+        </div>:<div className="text-xl px-5 py-5 mt-30 text-center">: Nothing to show!</div>}
         </>
     );
 }

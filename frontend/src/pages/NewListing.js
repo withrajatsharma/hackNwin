@@ -40,28 +40,30 @@ const NewListing = ({token, setToken}) =>{
         console.log(uploadedImg);
         //console.log(token)
         setError(false);
-        if(pName&&productImage&&category&&description&&expPrice&&age){
+        if(pName&&category&&description){
 
-            fetch('http://localhost:3000/api/listing/new',{
+            fetch('http://localhost:3000/api/event/new',{
                 method:'POST',
                 headers:{
                     'Content-Type': 'application/json',
                     'Authorization':`Bearer ${token}`,
                 },
                 body: JSON.stringify({
-                    title:pName,
+                    eventName:pName,
                     category:category,
-                    description:description,
-                    expectedPrice:expPrice,
-                    productAge:age,
-                    productImg:uploadedImg,
+                    eventDescription:description,
+                    // expectedPrice:expPrice,
+                    // productAge:age,
+                    // productImg:uploadedImg,
                 })
             })
             .then(function (response) {
                 return response.json();
+                
             })
             //Then with the data from the response in JSON...
             .then((data) => {
+                console.log(data.response)
                 if(data.message==="Product listed successfully"){
                     setLoading(false);
                     setStatus("Product listed successfully");
@@ -131,11 +133,11 @@ const NewListing = ({token, setToken}) =>{
     return(
         <>
             <Navbar setToken={setToken} token={token} />
-            <div className='flex justify-center mt-10'>
+            <div className='flex justify-center items-center  mt-24 '>
 
-                <div class="w-full max-w-xl">
+                <div class="w-[60%] ">
 
-                    <form onSubmit={handleProductAdd} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" enctype="multipart/form-data">
+                    <form onSubmit={handleProductAdd} className="bg-[#9096ed] rounded-xl text-white shadow-md  px-8 pt-6 pb-8 mb-4" enctype="multipart/form-data">
 
                         <div className="mb-4">
                             {error&&<div className='bg-red-300 text-base text-white rounded px-1 py-1'>
@@ -148,13 +150,19 @@ const NewListing = ({token, setToken}) =>{
                             }
                         </div>
 
-                        <div className='mb-4 text-center text-lg font-bold text-gray-600'>
-                            <h2>Add a new event.</h2>
+                        <div className='mb-4 text-center text-4xl font-bold text-slate-100 '>
+                            <h2>Add a new event</h2>
                         </div>
+
+<div className="flex justify-around">
+
+<div>
+
+
 
 
                         <div className="mb-4">
-                            <label className="block text-sm font-bold tracking-tight text-gray-500 mb-2" for="pname">
+                            <label className="block text-sm font-bold tracking-tight text-gray-200 mb-2" for="pname">
                                 Event Name
                             </label>
                             <input 
@@ -169,7 +177,7 @@ const NewListing = ({token, setToken}) =>{
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-bold tracking-tight text-gray-500 mb-2" for="category">
+                            <label className="block text-sm font-bold tracking-tight text-gray-200 mb-2" for="category">
                                 Event Category
                             </label>
                             <select  onChange={(e)=>{setCategory(e.target.value)}} name="category" id="category" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -182,15 +190,23 @@ const NewListing = ({token, setToken}) =>{
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-bold tracking-tight text-gray-500 mb-2" for="description">
+                            <label className="block text-sm font-bold tracking-tight text-gray-200 mb-2" for="description">
                                 Description
                             </label>
                             <textarea value={description} onChange={(e)=>{setDescription(e.target.value)}} className=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                             <p className="text-red-500 text-xs italic"></p>
                         </div>
 
-                        {/* <div className="mb-4">
-                            <label className="block text-sm font-bold tracking-tight text-gray-500 mb-2" for="expPrice">
+</div>
+
+<div className="w-[40%] flex flex-col ">
+
+
+
+<div className="flex justify-between items-center gap-8">
+
+                        <div className="mb-4">
+                            <label className="block text-sm font-bold tracking-tight text-gray-200 mb-2" for="expPrice">
                                 Expected Price 
                             </label>
                             <input 
@@ -205,30 +221,27 @@ const NewListing = ({token, setToken}) =>{
                         </div>
 
                         <div className="mb-4">
-                            <label className="block text-sm font-bold tracking-tight text-gray-500 mb-2" for="age">
-                                How old is your product? 
+                            <label className="block text-sm font-bold tracking-tight text-gray-200 mb-2" for="age">
+                                product validity 
                             </label>
                             <input 
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                 id="age" 
                                 type="number" 
-                                placeholder="10 yrs old"
+                                placeholder="10 days"
                                 value = {age}
                                 onChange={(e)=>setAge(e.target.value)}
                             />
                             <p className="text-red-500 text-xs italic"></p>
                         </div>
 
-                         */}
-
-                        <br />
-                        
+                        </div>   
                         <div className="max-w-2xl rounded-lg">
                             <div className="m-4">
-                                <label className="inline-block mb-2 text-gray-500">Add Poster image</label>
+                                <label className="inline-block mb-2 text-gray-200">Add Poster image</label>
                                 <div className="flex items-center justify-center w-full">
-                                <label className="flex flex-col w-full h-32 border-4 border-blue-200 border-dashed hover:bg-gray-100 hover:border-gray-300">
-                                    <div className="flex flex-col items-center justify-center pt-7">
+                                <label className="flex flex-col w-full h-20 border-4 border-gray-400 border-dashed bg-gray-100 hover:border-gray-300">
+                                    <div className="flex flex-col items-center justify-center pt-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                                     </svg>
@@ -249,15 +262,23 @@ const NewListing = ({token, setToken}) =>{
                         </div>
                         
 
-                        <div className="flex items-center justify-center">
+                        <div className="flex items-center justify-center ">
                             {success?<></>:<button 
-                                className="w-full bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                                className="w-[80%] bg-[#5e65ec] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
                                 type="submit"
                                 disabled={laoding}
                             >
                                 {laoding?<>Please wait ...</>:<>Post</>}
                             </button>}
                         </div>
+
+
+                        </div>
+
+
+                        </div>
+
+
                     </form>
                 </div>
             </div>

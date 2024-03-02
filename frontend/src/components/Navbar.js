@@ -156,7 +156,7 @@ const Navbar = ({ setToken, token }) => {
                   navigate("/aboutus");
                 }}
               >
-                About Us
+               Amal
               </button>
               <button
                 className="px-2 py-1 font-semibold text-base text-[#676ecc] "

@@ -3,9 +3,14 @@ import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import Product from '../components/Productcard';
 import { useParams } from "react-router-dom";
+import product from"../assets/514.webp"
 
 
 const ProductPage = ({token , setToken}) =>{
+
+
+    
+
     const params = useParams();
     const navigate = useNavigate();
 
@@ -52,30 +57,34 @@ const ProductPage = ({token , setToken}) =>{
     }
     return(
         <>
-        {console.log(listings)}
+        {/* {console.log(listings)} */}
         <Navbar setToken={setToken} token={token} />
         {/* {listings && <span className="text-sm py-3 px-6 text-gray-600 pt-6">../{listings.length>0?<>{listings[0].title} - Rs. {listings[0].expectedPrice}</> :<></>}</span>} */}
-        {listings?
-                        <Product
-                            token={token}
-                            eid={listings._id}
+        {/* {listings==0?
+
+                       
+        :<div className="text-xl px-5 py-5 mt-30 text-center">:Nothing to show!</div>} */}
+
+      <Product
+                            // token={token}
+                            eid={"1"}
                             type={"full"}
-                            key={listings.prodcutImg} 
-                            nav={listings.event_random_code} 
-                            img={listings.prodcutImg} 
-                            title={listings.eventName} 
-                            description={listings.eventDescription} 
-                            price={listings.expectedPrice} 
-                            old={listings.hostedBy}
-                            expiresBy={listings.expiresBy}
-                            category={listings.category}
-                            tags={listings.tags}
-                            pimg={listings.posterImg}
-                            eventEmail={listings.eventEmail}
-                            eventPhoneNumber={listings.eventPhoneNumber}
-                            partcipants={listings.partcipants}
-                        />
-        :<div className="text-xl px-5 py-5 mt-30 text-center">:( Nothing to show!</div>}
+                            // key={listings.prodcutImg} 
+                            // nav={listings.event_random_code} 
+                            img={product} 
+                            title={"Hack N Win"} 
+                            description={"Expect an adrenaline-fueled 24 hours of non-stop coding, brainstorming, and networking. Participants will tackle exciting challenges, engage in workshops, and have the opportunity to win fantastic prizes."} 
+                            price={"free"} 
+                            old={"2024"}
+                            expiresBy={"2-03-24"}
+                            category={"workshop"}
+                            tags={"ai/ml web3"}
+                            pimg={product}
+                            eventEmail={"help.d4community@gmail.com"}
+                            eventPhoneNumber={"9053797009"}
+                            partcipants={"200+"}
+                        />        
+
         </>
     );
 }

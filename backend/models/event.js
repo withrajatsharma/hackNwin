@@ -10,24 +10,24 @@ const dataSchema = new mongoose.Schema({
         type: String,
     },
     eventEmail: {
-        required: true,
+        // required: true,
         unique: true,
         type: String,
     },
     createdBy: {
-        required: true,
+        // required: true,
         type: String,
     },
     createdAt: {
-        required: true,
+        // required: true,
         type: String,
     },
     expiresBy: {
-        required: true,
+        // required: true,
         type: String,
     },
     duration: {
-        required: true,
+        // required: true,
         type: Number,
     },
     posterImg: {
@@ -35,27 +35,27 @@ const dataSchema = new mongoose.Schema({
         type: String,
     },
     hostedBy: {
-        required: true,
+        // required: true,
         type: String,
     },
     eventPhoneNumber: {
-        required: true,
+        // required: true,
         type: Number,
     },
     category: {
-        required: true,
+        // required: true,
         type: String,
     },
     tags: {
-        required: true,
+        // required: true,
         type: Array,
     },
     partcipants: {
-        required: true,
+        // required: true,
         type: Array,
     },
     event_random_code: {
-        required: true,
+        // required: true,
         type: String,
     }
 })

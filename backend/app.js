@@ -21,9 +21,17 @@ app.use(express.urlencoded({ extended: true }));
 const routes = require('./routes/routes');
 const user = require('./routes/user');
 const event = require('./routes/event');
+const auth = require('./middlewares/auth');
 app.use('/api', routes);
 app.use('/api/user', user);
 app.use('/api/event', event);
+
+app.post("/api/listing/newImg",auth, upload.single('productImg') ,(req, res, next) =>{
+
+    console.log(JSON.stringify(req.file))
+    res.status(200).send({'uploaded_img':req.file.path});
+  
+  })
 
 // app.listen(3000, () => {
 //     console.log(`Server Started at ${3000}`)

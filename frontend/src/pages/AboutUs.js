@@ -7,20 +7,22 @@ const AboutUs = () =>{
 <div>
         <div className="py-20 bg-cover bg-no-repeat bg-fixed" style={{backgroundImage: 'url(https://journalsofindia.com/wp-content/uploads/2020/11/All-India-Council-for-Technical-Education-AICTE.jpg)'}}>
           <div className="container m-auto text-center px-6 opacity-100">
-            <h2 className="text-4xl font-bold mb-2 text-white drop-shadow-lg	">Your go-to place to find any</h2>
-            <h3 className="text-5xl mb-8 text-white drop-shadow-lg">Workshops, Seminars, Symposium</h3>
+            <h2 className="text-4xl font-bold mb-2 text-white drop-shadow-lg	">Stand out of Box</h2>
+            <h3 className="text-5xl mb-8 text-white drop-shadow-lg">Examine, Evaluate and Elevate</h3>
             <button className="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider hover:border-transparent hover:text-blue-500 hover:bg-gray-800">So are you ready?</button>
           </div>
         </div>
         <section className="container mx-auto px-6 p-10">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">Jigyaasu.</h2>
+          <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">AMAL</h2>
+          <p className="text-center">Inspiring Success</p>
           <div className="flex items-center flex-wrap mb-20">
             <div className="w-full md:w-1/2 pr-10">
-              <h4 className="text-3xl text-gray-800 font-bold mb-3">All-in-one</h4>
+              <h4 className="text-3xl text-gray-800 font-bold mb-3">Explore the World of Opportunities and Grab the Success.</h4>
               <p className="text-gray-600 mb-8">
-                Jisyaasu is an in all-in-one platform for both hosts and partcipants.<br />
-                It empowers everyone to access information about all the academic activites going around in the world and in the country.
-                Connect with the world and share your knwoledge we have got everything covered!!
+                AMAL is an in all-in-one platform for both hosts and participants.<br />
+                It provides learning and development opportunities for students. It is internship and placements providing platform. It is also provides career paths and advices.
+                It empowers everyone to access information about all the career oriented activities going around in the world and in the country.
+                Connect with the world and share your knowledge we have got everything covered!!
 
               </p>
             </div>
@@ -35,7 +37,7 @@ const AboutUs = () =>{
             <div className="w-full md:w-1/2 pl-10">
               <h4 className="text-3xl text-gray-800 font-bold mb-3">Use the Force!</h4>
               <p className="text-gray-600 mb-8">
-                Now with Jigyaasu its even easier to manage the events!!, Your partcipants are just one click away from getting their certificates.
+                Now with AMAL its even easier to manage the events!!, Your partcipants are just one click away from getting their certificates.
                 Hosts can even take registrations and connect with thier partcipants through one common portal.
               </p>
             </div>

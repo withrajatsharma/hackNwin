@@ -7,10 +7,3 @@
 4) Participants are able create projects and post on their profile
 5) Collaboration with companies
 6) Career Guidance 
-
-### Contributors:
-1) Ananya (Team Leader)
-2) Sahil
-3) Shruti
-4) Rajat
- 
